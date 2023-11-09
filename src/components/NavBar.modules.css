@@ -1,0 +1,28 @@
+nav {
+  padding: 20px 40px;
+  background-color: #e9e2e2;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+a,
+li {
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
