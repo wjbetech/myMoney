@@ -13,16 +13,20 @@ const NavBar = () => {
     <nav>
       <ul>
         <div>
-          {/* prettier-ignore */}
-          <li className="title"><Link to="/">myMoney</Link></li>
+          <li className="title">
+            <Link to="/">myMoney</Link>
+          </li>
         </div>
         <div className="nav-right">
-          {/* prettier-ignore */}
-          <li className=""><Link to="/">Home</Link></li>
-          {/* prettier-ignore */}
-          <li><Link to="/login">Login</Link></li>
-          {/* prettier-ignore */}
-          <li><Link to="/signup">Sign Up</Link></li>
+          <li className="">
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
           <li>
             <button className="btn" onClick={logout}>
               Logout
