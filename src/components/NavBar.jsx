@@ -1,26 +1,33 @@
 import React from "react";
 import styles from "./NavBar.modules.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useLogout } from "../hooks/useLogout";
+import { useSignup } from "../hooks/useSignup";
 
 const NavBar = () => {
+  // add logout and signup functionality
+  const { logout } = useLogout();
+  const { signup } = useSignup();
+
   return (
     <nav>
       <ul>
         <div>
-          <Link to="/">
-            <li className="title">myMoney</li>
-          </Link>
+          {/* prettier-ignore */}
+          <li className="title"><Link to="/">myMoney</Link></li>
         </div>
         <div className="nav-right">
-          <Link to="/">
-            <li className="">Home</li>
-          </Link>
-          <Link to="/login">
-            <li>Login</li>
-          </Link>
-          <Link to="/signup">
-            <li>Sign Up</li>
-          </Link>
+          {/* prettier-ignore */}
+          <li className=""><Link to="/">Home</Link></li>
+          {/* prettier-ignore */}
+          <li><Link to="/login">Login</Link></li>
+          {/* prettier-ignore */}
+          <li><Link to="/signup">Sign Up</Link></li>
+          <li>
+            <button className="btn" onClick={logout}>
+              Logout
+            </button>
+          </li>
         </div>
       </ul>
     </nav>
