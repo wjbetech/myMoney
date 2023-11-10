@@ -19,9 +19,9 @@ const Signup = () => {
     e.preventDefault();
     signup(email, password, displayName);
 
-    setEmail("");
-    setPassword("");
-    setDisplayName("");
+    // setEmail("");
+    // setPassword("");
+    // setDisplayName("");
   };
 
   return (
@@ -51,13 +51,12 @@ const Signup = () => {
           value={password}
         />
       </label>
-      {pending ? (
+      {pending && (
         <button className="btn" disabled>
           Signing up..
         </button>
-      ) : (
-        <button className="btn">Sign Up</button>
       )}
+      {!pending && <button className="btn">Sign Up</button>}
       {error && <p>{error}</p>}
     </form>
   );
