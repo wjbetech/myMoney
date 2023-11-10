@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   return (
-    <form action="" className={styles["login.form"]} onSubmit={handleSubmit}>
+    <form action="" className={styles["login-form"]} onSubmit={handleSubmit}>
       <h2>Login</h2>
       <label>
         <span>Email:</span>
