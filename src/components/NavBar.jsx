@@ -3,11 +3,14 @@ import styles from "./NavBar.modules.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useLogout } from "../hooks/useLogout";
 import { useSignup } from "../hooks/useSignup";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const NavBar = () => {
   // add logout and signup functionality
   const { logout } = useLogout();
   const { signup } = useSignup();
+
+  const { user } = useAuthContext();
 
   return (
     <nav>
@@ -21,17 +24,23 @@ const NavBar = () => {
           <li className="">
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
-          <li>
-            <button className="btn" onClick={logout}>
-              Logout
-            </button>
-          </li>
+          {!user && (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/signup">Sign Up</Link>
+              </li>
+            </>
+          )}
+          {user && (
+            <li>
+              <button className="btn" onClick={logout}>
+                Logout
+              </button>
+            </li>
+          )}
         </div>
       </ul>
     </nav>
