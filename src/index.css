@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Poppins, sans-serif;
   margin: 0;
@@ -28,15 +34,14 @@ input:focus {
 
 .btn {
   background: none;
-  border: 2px solid #1f9751;
-  padding: 6px 12px;
+  border: 2px solid rgb(24, 43, 214);
   border-radius: 4px;
-  color: #1f9751;
+  color: rgba(31, 43, 151);
   font-weight: bold;
   cursor: pointer;
-  font-size: 1em;
+  padding: 5px 12px;
 }
 .btn:hover {
-  background: #1f9751;
+  background: rgb(31, 43, 151);
   color: #fff;
 }

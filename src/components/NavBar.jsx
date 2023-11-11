@@ -12,6 +12,11 @@ const NavBar = () => {
 
   const { user } = useAuthContext();
 
+  function handleNames(name) {
+    let splitName = name.split("");
+    return splitName[0].toUpperCase().concat(name.slice(1));
+  }
+
   return (
     <nav>
       <ul>
@@ -21,9 +26,6 @@ const NavBar = () => {
           </li>
         </div>
         <div className="nav-right">
-          <li className="">
-            <Link to="/">Home</Link>
-          </li>
           {!user && (
             <>
               <li>
@@ -35,11 +37,14 @@ const NavBar = () => {
             </>
           )}
           {user && (
-            <li>
-              <button className="btn" onClick={logout}>
-                Logout
-              </button>
-            </li>
+            <>
+              <li>{handleNames(user.displayName)}</li>
+              <li>
+                <button className="btn" onClick={logout}>
+                  Logout
+                </button>
+              </li>
+            </>
           )}
         </div>
       </ul>

@@ -1,6 +1,6 @@
 nav {
-  padding: 20px 40px;
-  background-color: #e9e2e2;
+  padding: 25px 40px;
+  background-color: rgb(160, 199, 250);
 }
 
 .title {
@@ -11,6 +11,7 @@ nav {
 .nav-right {
   display: flex;
   gap: 15px;
+  align-items: end;
 }
 
 a,

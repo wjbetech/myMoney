@@ -1,26 +1,35 @@
 import { ReactDOM } from "react";
-import { BrowserRouter, Route } from "react-router-dom/";
+import { BrowserRouter, Route, Redirect } from "react-router-dom/";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import NavBar from "./components/NavBar";
+import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
+  const { authReady, user } = useAuthContext();
+
   return (
-    <BrowserRouter>
-      <NavBar />
-      <div className="">
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-      </div>
-    </BrowserRouter>
+    <div>
+      {authReady && (
+        <>
+          <BrowserRouter>
+            <NavBar />
+            <div className="">
+              <Route exact path="/">
+                {user ? <Home /> : <Redirect to="/login"></Redirect>}
+              </Route>
+              <Route exact path="/login">
+                {!user ? <Login /> : <Redirect to="/"></Redirect>}
+              </Route>
+              <Route exact path="/signup">
+                {!user ? <Signup /> : <Redirect to="/"></Redirect>}
+              </Route>
+            </div>
+          </BrowserRouter>
+        </>
+      )}
+    </div>
   );
 }
 
