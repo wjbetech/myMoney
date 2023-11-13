@@ -1,14 +1,22 @@
 import React from "react";
 import styles from "./TransactionForm.module.css";
 import { useState } from "react";
+import { useFirestore } from "../../hooks/useFirestore";
 
-const TransactionForm = () => {
+const TransactionForm = ({ uid }) => {
+  // state setters
   const [name, setName] = useState("");
   const [transactionValue, setTransactionValue] = useState("");
 
+  // firestore refs
+  const { addDocument, deleteDocument, response } =
+    useFirestore("transactions");
+
+  // handlers
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
+    addDocument({
+      uid,
       name,
       transactionValue,
     });
