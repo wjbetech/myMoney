@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "./TransactionForm.module.css";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 
@@ -9,8 +8,7 @@ const TransactionForm = ({ uid }) => {
   const [transactionValue, setTransactionValue] = useState("");
 
   // firestore refs
-  const { addDocument, deleteDocument, response } =
-    useFirestore("transactions");
+  const { addDocument, response } = useFirestore("transactions");
 
   // handlers
   const handleSubmit = (e) => {
@@ -21,6 +19,16 @@ const TransactionForm = ({ uid }) => {
       transactionValue,
     });
   };
+
+  // reset fields on successful submission
+  useEffect(() => {
+    console.log("WORKING INSIDE useEffect");
+    if (response.success) {
+      console.log("WORKING INSIDE response.success");
+      setName("");
+      setTransactionValue("");
+    }
+  }, [response.success]);
 
   return (
     <>
@@ -36,7 +44,7 @@ const TransactionForm = ({ uid }) => {
           />
         </label>
         <label>
-          <span>Value:</span>
+          <span>Value (₩):</span>
           <input
             type="number"
             required
