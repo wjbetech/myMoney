@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./NavBar.modules.css";
+import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useLogout } from "../hooks/useLogout";
 import { useSignup } from "../hooks/useSignup";
@@ -21,11 +21,11 @@ const NavBar = () => {
     <nav>
       <ul>
         <div>
-          <li className="title">
+          <li className={styles.nav}>
             <Link to="/">myMoney</Link>
           </li>
         </div>
-        <div className="nav-right">
+        <div className={styles.right}>
           {!user && (
             <>
               <li>
