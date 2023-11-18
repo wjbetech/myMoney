@@ -3,6 +3,10 @@ nav {
   background-color: rgb(160, 199, 250);
 }
 
+.home {
+  font-weight: 700;
+}
+
 .title {
   font-weight: 700;
   font-size: 1.25rem;
@@ -14,14 +18,14 @@ nav {
   align-items: end;
 }
 
-a,
+.a,
 li {
   text-decoration: none;
   color: #000000;
   font-size: 0.95rem;
 }
 
-ul {
+.ul {
   list-style-type: none;
   display: flex;
   justify-content: space-between;

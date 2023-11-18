@@ -19,20 +19,26 @@ const NavBar = () => {
 
   return (
     <nav>
-      <ul>
+      <ul className={styles.ul}>
         <div>
-          <li className={styles.nav}>
-            <Link to="/">myMoney</Link>
+          <li className={styles.home}>
+            <Link className={styles.a} to="/">
+              myMoney
+            </Link>
           </li>
         </div>
         <div className={styles.right}>
           {!user && (
             <>
               <li>
-                <Link to="/login">Login</Link>
+                <Link className={styles.a} to="/login">
+                  Login
+                </Link>
               </li>
               <li>
-                <Link to="/signup">Sign Up</Link>
+                <Link className={styles.a} to="/signup">
+                  Sign Up
+                </Link>
               </li>
             </>
           )}
