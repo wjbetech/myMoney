@@ -59,10 +59,10 @@
     display: flex;
     justify-content: space-between;
     border: 2px solid #77777742;
+    border-left: 7px solid rgb(160, 199, 250);
     padding: 20px;
     text-decoration: none;
     list-style: none;
-    width: 75%;
     max-width: 500px;
     border-radius: 12px;
     align-items: center;
