@@ -45,3 +45,19 @@ input:focus {
   background: rgb(31, 43, 151);
   color: #fff;
 }
+
+.delete-btn {
+  background: none;
+  border: 2px solid red;
+  border-radius: 4px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 8px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.delete-btn:hover {
+  background: red;
+  color: #fff;
+}
