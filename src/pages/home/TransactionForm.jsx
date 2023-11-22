@@ -52,7 +52,7 @@ const TransactionForm = ({ uid }) => {
 						value={transactionValue}
 					/>
 				</label>
-				<button type="button" className="btn">
+				<button type="submit" className="btn">
 					Add Transaction
 				</button>
 			</form>
