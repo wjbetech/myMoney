@@ -1,0 +1,15 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transactions/{document=**} {
+
+      // only auth'd users can create docs
+      allow create: if request.auth != null; 
+
+      // only allow read & delete if uid match on both req & resource
+      allow read, delete: if request.auth.uid == resource.data.uid;
+
+    }
+  }
+}
